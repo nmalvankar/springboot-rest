@@ -1,0 +1,35 @@
+management:
+  server:
+    port: 8081
+  context-path: /actuator
+  
+server:
+  port: 8082
+  
+keycloak:
+  enabled: true
+  realm: demo
+  auth-server-url: http://localhost:8080/auth
+  ssl-required: external
+  resource: emr-service
+  credentials:
+    secret: 08357ba9-e286-4fb9-8107-24059d8f6e80
+  security-constraints[0]:
+    authRoles[0]: user
+    securityCollections[0]:
+      patterns[0]: /emr/*
+---
+spring:
+  profiles: production
+keycloak:
+  enabled: ${KEYCLOAK_ENABLED}
+  auth-server-url: ${KEYCLOAK_URL}/auth
+  ssl-required: external
+  realm: ${KEYCLOAK_REALM}
+  resource: ${KEYCLOAK_CLIENT_ID}
+  credentials:
+    secret: ${KEYCLOAK_CLIENT_SECRET}
+  security-constraints[0]:
+    authRoles[0]: user
+    securityCollections[0]:
+      patterns[0]: /emr/*

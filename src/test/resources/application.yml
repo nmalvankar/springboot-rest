@@ -1,0 +1,4 @@
+management:
+  server:
+    port: 9999
+  context-path: /actuator

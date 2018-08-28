@@ -11,9 +11,8 @@ keycloak:
   realm: demo
   auth-server-url: https://sso-sso.apps.ehealth.rht-labs.com/auth
   ssl-required: all
+  confidential-port: 443
   resource: springboot-rest
-  credentials:
-    secret: 86ddbb68-7a52-4092-a035-b26a5c9dd596
   security-constraints[0]:
     authRoles[0]: user
     securityCollections[0]:

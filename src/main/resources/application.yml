@@ -17,5 +17,5 @@ keycloak:
   security-constraints[0]:
     authRoles[0]: user
     securityCollections[0]:
-      patterns[0]: /emr/*
+      patterns[0]: /*
 

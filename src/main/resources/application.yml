@@ -11,25 +11,11 @@ keycloak:
   realm: demo
   auth-server-url: https://sso-sso.apps.ehealth.rht-labs.com/auth
   ssl-required: external
-  resource: emr-service
+  resource: springboot-rest
   credentials:
     secret: 86ddbb68-7a52-4092-a035-b26a5c9dd596
   security-constraints[0]:
     authRoles[0]: user
     securityCollections[0]:
       patterns[0]: /emr/*
----
-spring:
-  profiles: production
-keycloak:
-  enabled: ${KEYCLOAK_ENABLED}
-  auth-server-url: ${KEYCLOAK_URL}/auth
-  ssl-required: external
-  realm: ${KEYCLOAK_REALM}
-  resource: ${KEYCLOAK_CLIENT_ID}
-  credentials:
-    secret: ${KEYCLOAK_CLIENT_SECRET}
-  security-constraints[0]:
-    authRoles[0]: user
-    securityCollections[0]:
-      patterns[0]: /emr/*
+
